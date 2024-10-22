@@ -1,0 +1,1088 @@
+﻿@using System.Linq
+@model UNTELSLAB.Models.EquipoLaboratorio
+@{
+    ViewData["Title"] = "Detalles del Equipo";
+}
+
+<div class="container-fluid w-full">
+    <div class="row container-fluid w-full">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+            <div class="position-sticky">
+                <div class="sidebar-header">
+                    <img src="/img/UNTELS.png" alt="Logo" class="logo">
+                </div>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-flask"></i> Laboratorios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Equipos" asp-action="EquiposLaboratorio">
+                            <i class="fas fa-desktop"></i> Equipos de laboratorio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-clipboard-list"></i> Inventario
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-tools"></i> Mantenimiento
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">@Model.Nombre</h1>
+            </div>
+
+            <div class="d-flex flex-nowrap flex-row">
+                <div class="col-md-6">
+                    <div>
+                        <h4>Datos de Equipo</h4>
+                    
+                        @if (Model.DatosEquipo != null)
+                        {
+                            <dl class="row">
+                                <dt class="col-sm-4">Procesador</dt>
+                                <dd class="col-sm-8">@Model.DatosEquipo.Procesador</dd>
+                                <dt class="col-sm-4">Sistema Operativo</dt>
+                                <dd class="col-sm-8">@Model.DatosEquipo.SistemaOperativo</dd>
+                                <dt class="col-sm-4">Memoria</dt>
+                                <dd class="col-sm-8">@Model.DatosEquipo.Memoria</dd>
+                                <dt class="col-sm-4">Año de Fabricación</dt>
+                                <dd class="col-sm-8">@Model.DatosEquipo.AnoFabricacion</dd>
+                                <dt class="col-sm-4">Manual</dt>
+                                <dd class="col-sm-8">
+                                    @if (!string.IsNullOrEmpty(Model.DatosEquipo.Manual))
+                                    {
+                                        <button href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#manuaModal">Ver</button>
+                                    }
+                                    else
+                                    {
+                                        <span>No disponible</span>
+                                    }
+                                </dd>
+                            </dl>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarDatosModal">Editar Datos del Equipo</button>
+                        }
+                        else
+                        {
+                            <p>No hay datos del equipo disponibles.</p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#agregarDatosModal">Agregar Datos del Equipo</button>
+                        }
+                    </div>
+                    <!--REPORTE MANTENIMIENTO-->
+                    <div class="mt-5">
+                      @if (Model.DatosEquipo != null && Model.FichaTecnicaEquipo != null) { 
+                        @if (Model.InformesMantenimiento.Count > 0)
+                            {
+                                <div class="d-flex flex-row my-3">
+                                    <div class="d-flex justify-content align-items">
+                                        <h4>Informe de mantenimiento</h4>
+                                    </div>
+                                    <div class="d-flex justify-content align-items">
+                                        <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Lugar Mantenimiento</th>
+                                            <th>Numero de Informe</th>
+                                            <th>Revisado por</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var mantenimiento in Model.InformesMantenimiento)
+                                        {
+                                            <tr>
+                                                <th>@mantenimiento.Fecha</th>
+                                                <th>@mantenimiento.LugarMantenimiento</th>
+                                                <th>@mantenimiento.NumeroInforme</th>
+                                                <th>@mantenimiento.RevisadoPor</th>
+                                                <th>@mantenimiento.Observaciones</th>
+                                            </tr>
+                                    }
+                                    </tbody>
+                                </table>
+                            } else
+                                {
+                                <div class="d-flex flex-column">
+                                <div class="d-flex flex-row justify-content-between align-items-center">
+                                <div>
+                                    <h4>Informe de mantenimiento</h4>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
+                                </div>
+                                </div>
+                                <div>
+                                    <p>No hay datos del equipo disponibles.</p>  
+                                </div>
+                                </div>
+}
+
+                      }else{
+                              <h4>Informe de mantenimiento</h4>
+                          <p>Necesita llenar Datos y ficha tecnica antes</p>
+                        
+                      }
+                        </div>
+
+                    <div class="mt-5 mr-3">
+                        @if (Model.DatosEquipo!=null && Model.FichaTecnicaEquipo!=null)
+                        {
+                            @if (Model.HistoricoFallas.Count > 0)
+                            {
+                                <div class="d-flex flex-row my-3">
+                                    <div class="d-flex justify-content align-items">
+                                        <h4>Informe de mantenimiento</h4>
+                                    </div>
+                                    <div class="d-flex justify-content align-items">
+                                        <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar Falla </button>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Ocurrencia Falla</th>
+                                            <th>Revisado por</th>
+                                            <th>Observaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                @foreach (var fallas in Model.HistoricoFallas)
+                                {
+                                                <tr>
+                                                <th>@fallas.Fecha</th>
+                                                <th>@fallas.Ocurrencia</th>
+                                                <th>@fallas.RevisadoPor</th>
+                                                <th>@fallas.Observaciones</th>
+                                                </tr>
+                                }
+                                    </tbody>
+                                </table>
+                            }
+                            else
+                            {
+                            
+                                <div class="d-flex flex-column">
+                                <div class="d-flex flex-row justify-content-between align-items-center">
+                                <div>
+                                    <h4>Historico de fallas</h4>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar Falla </button>
+                                </div>
+                                </div>
+                                <div>
+                                    <p>No hay datos del equipo disponibles.</p>  
+                                </div>
+                                </div>
+
+
+                                }
+                        }else
+                        {
+                           <h4> Historico de fallas</h4>
+                            <p>Necesita llenar Datos y ficha tecnica antes</p>
+                        }
+                    </div>
+                     </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Ficha técnica</h4>
+                @if (Model.FichaTecnicaEquipo != null)
+                {
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>MARCA:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Marca</td>
+                                    <th>TIPO / MODELO:</th>
+                                    <td>@Model.FichaTecnicaEquipo.TipoModelo</td>
+                                </tr>
+                                <tr>
+                                    <th>Nº DE SERIE:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Serie</td>
+                                    <th>CÓDIGO:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Codigo</td>
+                                </tr>
+                                <tr>
+                                    <th>TENSIÓN:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Tension</td>
+                                    <th>FRECUENCIA:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Frecuencia</td>
+                                </tr>
+                                <tr>
+                                    <th>CAPACIDAD:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Capacidad</td>
+                                    <th>PRESIÓN:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Presion</td>
+                                </tr>
+                                <tr>
+                                    <th>RESOLUCIÓN:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Resolucion</td>
+                                    <th>AÑO FABRICACIÓN:</th>
+                                    <td>@(Model.FichaTecnicaEquipo.AnoFabricacion?.ToString("yyyy-MM-dd"))</td>
+                                </tr>
+                                <tr>
+                                    <th>UBICACIÓN:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Ubicacion</td>
+                                    <th>CORRIENTE:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Corriente</td>
+                                </tr>
+                                <tr>
+                                    <th>POTENCIA:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Potencia</td>
+                                    <th>VELOCIDAD:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Velocidad</td>
+                                </tr>
+                                <tr>
+                                    <th>TEMPERATURA:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Temperatura</td>
+                                    <th>CANALES:</th>
+                                    <td>@Model.FichaTecnicaEquipo.Canales</td>
+                                </tr>
+                                <tr>
+                                    <th>FECHA OPERATIVIDAD:</th>
+                                    <td>(@Model.FichaTecnicaEquipo.FechaOperatividad.ToString("yyyy-MM-dd"))</td>
+                                    <th>FECHA VIGENCIA:</th>
+                                    <td>@(Model.FichaTecnicaEquipo.FechaVigencia?.ToString("yyyy-MM-dd"))</td>
+                                </tr>
+                                <tr>
+                                    <th>FREC. CALIBRACIÓN:</th>
+                                    <td>@Model.FichaTecnicaEquipo.FrecuenciaCalibracion</td>
+                                    <th>FREC. MANTENIMIENTO:</th>
+                                    <td>@Model.FichaTecnicaEquipo.FrecuenciaMantenimiento</td>
+                                </tr>
+                            </table>
+
+                            <div>
+                                <strong>INSTRUCCIÓN DE OPERACIÓN:</strong>
+                                <p>@Model.FichaTecnicaEquipo.InstruccionOperacion</p>
+                            </div>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarFichaTecnicaModal">Editar Ficha Técnica</button>
+                }
+                else
+                {
+                            <p>No hay información de ficha técnica disponible.</p>
+                            <button id="btnAgregarFichaTecnica" class="btn btn-primary" data-toggle="modal" data-target="#agregarFichaTecnicaModal">Agregar Ficha Técnica</button>
+                }
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
+                        AGREGAR INFORME DE MANTENIMIENTO
+                    </button>
+                </div>
+
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#informeCalibracionModal">VER INFORME DE CALIBRACIÓN</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal"> AGREGAR HISTÓRIA DE FALLAS</button>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<!-- Modale para editar Equipo -->
+<div class="modal fade" id="editarDatosModal" tabindex="-1" role="dialog" aria-labelledby="editarDatosModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarDatosModalLabel">Editar Datos del Equipo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editarDatosForm">
+                    <input type="hidden" id="equipoId" value="@Model.Id" />
+                    <div class="form-group">
+                        <label for="procesador">Procesador</label>
+                        <input type="text" class="form-control" id="procesador" value="@Model.DatosEquipo?.Procesador">
+                    </div>
+                    <div class="form-group">
+                        <label for="sistemaOperativo">Sistema Operativo</label>
+                        <input type="text" class="form-control" id="sistemaOperativo" value="@Model.DatosEquipo?.SistemaOperativo">
+                    </div>
+                    <div class="form-group">
+                        <label for="memoria">Memoria</label>
+                        <input type="text" class="form-control" id="memoria" value="@Model.DatosEquipo?.Memoria">
+                    </div>
+                    <div class="form-group">
+                        <label for="anoFabricacion">Año de Fabricación</label>
+                        <input type="number" class="form-control" id="anoFabricacion" value="@Model.DatosEquipo?.AnoFabricacion">
+                    </div>
+                    <div class="form-group">
+                        <label for="manual">Manual</label>
+                        <input type="text" class="form-control" id="manual" value="@Model.DatosEquipo?.Manual">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarDatosEquipo()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para agregar datos del equipo -->
+<div class="modal fade" id="agregarDatosModal" tabindex="-1" role="dialog" aria-labelledby="agregarDatosModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarDatosModalLabel">Agregar Datos del Equipo</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="agregarDatosForm" enctype="multipart/form-data">
+                    <input type="hidden" id="idEquipo" name="IdEquipo" value="@Model.Id" />
+                    <div class="form-group">
+                        <label for="procesador">Procesador</label>
+                        <input type="text" class="form-control" id="procesador" name="Procesador">
+                    </div>
+                    <div class="form-group">
+                        <label for="sistemaOperativo">Sistema Operativo</label>
+                        <input type="text" class="form-control" id="sistemaOperativo" name="SistemaOperativo">
+                    </div>
+                    <div class="form-group">
+                        <label for="memoria">Memoria</label>
+                        <input type="text" class="form-control" id="memoria" name="Memoria">
+                    </div>
+                    <div class="form-group">
+                        <label for="manual">Manual</label>
+                        <input type="file" class="form-control" id="manual" name="Manual">
+                    </div>
+                    <div class="form-group">
+                        <label for="anoFabricacion">Año de Fabricación</label>
+                        <input type="number" class="form-control" id="anoFabricacion" name="AnoFabricacion">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="agregarDatosEquipo()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL VER MANUAL -->
+<div class="modal fade" id="manuaModal" tabindex="-1" aria-labelledby="manuaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="manuaModalLabel">MANUAL - PDF</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (Model?.Nombre != null && Model?.DatosEquipo?.Manual != null)
+                {
+                    <embed src="/uploads/@Model.Nombre/@Model.DatosEquipo.Manual"
+                           id="manual-pdf" width="100%" height="500px" type="application/pdf">
+                }
+                else
+                {
+                    <p>No se encontró el manual para este equipo.</p>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para agregar ficha técnica -->
+<div class="modal fade" id="agregarFichaTecnicaModal" tabindex="-1" role="dialog" aria-labelledby="agregarFichaTecnicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarFichaTecnicaModalLabel">Agregar Ficha Técnica</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="agregarFichaTecnicaForm">
+                    <input type="hidden" id="equipoIdFicha" value="@Model.Id" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="marca">Marca</label>
+                                <input type="text" class="form-control" id="marca" name="Marca" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="serie">Nº de Serie</label>
+                                <input type="text" class="form-control" id="serie" name="Serie" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tension">Tensión</label>
+                                <input type="text" class="form-control" id="tension" name="Tension">
+                            </div>
+                            <div class="form-group">
+                                <label for="frecuencia">Frecuencia</label>
+                                <input type="text" class="form-control" id="frecuencia" name="Frecuencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="capacidad">Capacidad</label>
+                                <input type="text" class="form-control" id="capacidad" name="Capacidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="presion">Presión</label>
+                                <input type="text" class="form-control" id="presion" name="Presion">
+                            </div>
+                            <div class="form-group">
+                                <label for="resolucion">Resolución</label>
+                                <input type="text" class="form-control" id="resolucion" name="Resolucion">
+                            </div>
+                            <div class="form-group">
+                                <label for="anoFabricacion">Año de Fabricación</label>
+                                <input type="date" class="form-control" id="anoFabricacion" name="AnoFabricacion">
+                            </div>
+                            <div class="form-group">
+                                <label for="ubicacion">Ubicación</label>
+                                <input type="text" class="form-control" id="ubicacion" name="Ubicacion">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoModelo">Tipo / Modelo</label>
+                                <input type="text" class="form-control" id="tipoModelo" name="TipoModelo">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="codigo">Código</label>
+                                <input type="text" class="form-control" id="codigo" name="Codigo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="corriente">Corriente</label>
+                                <input type="text" class="form-control" id="corriente" name="Corriente">
+                            </div>
+                            <div class="form-group">
+                                <label for="potencia">Potencia</label>
+                                <input type="text" class="form-control" id="potencia" name="Potencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="velocidad">Velocidad</label>
+                                <input type="text" class="form-control" id="velocidad" name="Velocidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="temperatura">Temperatura</label>
+                                <input type="text" class="form-control" id="temperatura" name="Temperatura">
+                            </div>
+                            <div class="form-group">
+                                <label for="canales">Canales</label>
+                                <input type="text" class="form-control" id="canales" name="Canales">
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaOperatividad">Fecha de Operatividad</label>
+                                <input type="date" class="form-control" id="fechaOperatividad" name="FechaOperatividad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaVigencia">Fecha de Vigencia</label>
+                                <input type="date" class="form-control" id="fechaVigencia" name="FechaVigencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="frecuenciaCalibracion">Frecuencia de Calibración</label>
+                                <input type="text" class="form-control" id="frecuenciaCalibracion" name="FrecuenciaCalibracion">
+                            </div>
+                            <div class="form-group">
+                                <label for="frecuenciaMantenimiento">Frecuencia de Mantenimiento</label>
+                                <input type="text" class="form-control" id="frecuenciaMantenimiento" name="FrecuenciaMantenimiento">
+                            </div>
+                            <div class="form-group">
+                                <label for="instruccionOperacion">Instrucción de Operación</label>
+                                <textarea class="form-control" id="instruccionOperacion" name="InstruccionOperacion" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="guardarFichaTecnica()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL PARA EDITAR LA FICHA TÈCNCIA -->
+
+<div class="modal fade" id="editarFichaTecnicaModal" tabindex="-1" aria-labelledby="editarFichaTecnicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarFichaTecnicaModalLabel">Editar Ficha Técnica</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editarFichaTecnicaForm">
+                    <input type="hidden" id="fichaTecnicaId" name="Id" value="@Model.FichaTecnicaEquipo?.Id" />
+                    <input type="hidden" id="equipoIdFicha" name="IdEquipo" value="@Model.Id" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="marca">Marca</label>
+                                <input type="text" class="form-control" id="marca" name="Marca" value="@Model.FichaTecnicaEquipo?.Marca" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="serie">Nº de Serie</label>
+                                <input type="text" class="form-control" id="serie" name="Serie" value="@Model.FichaTecnicaEquipo?.Serie" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tension">Tensión</label>
+                                <input type="text" class="form-control" id="tension" name="Tension" value="@Model.FichaTecnicaEquipo?.Tension">
+                            </div>
+                            <div class="form-group">
+                                <label for="frecuencia">Frecuencia</label>
+                                <input type="text" class="form-control" id="frecuencia" name="Frecuencia" value="@Model.FichaTecnicaEquipo?.Frecuencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="capacidad">Capacidad</label>
+                                <input type="text" class="form-control" id="capacidad" name="Capacidad" value="@Model.FichaTecnicaEquipo?.Capacidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="presion">Presión</label>
+                                <input type="text" class="form-control" id="presion" name="Presion" value="@Model.FichaTecnicaEquipo?.Presion">
+                            </div>
+                            <div class="form-group">
+                                <label for="resolucion">Resolución</label>
+                                <input type="text" class="form-control" id="resolucion" name="Resolucion" value="@Model.FichaTecnicaEquipo?.Resolucion">
+                            </div>
+                            <div class="form-group">
+                                <label for="anoFabricacion">Año de Fabricación</label>
+                                <input type="date" class="form-control" id="anoFabricacion" name="AnoFabricacion" value="@(Model.FichaTecnicaEquipo?.AnoFabricacion?.ToString("yyyy-MM-dd"))">
+                            </div>
+                            <div class="form-group">
+                                <label for="ubicacion">Ubicación</label>
+                                <input type="text" class="form-control" id="ubicacion" name="Ubicacion" value="@Model.FichaTecnicaEquipo?.Ubicacion">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipoModelo">Tipo / Modelo</label>
+                                <input type="text" class="form-control" id="tipoModelo" name="TipoModelo" value="@Model.FichaTecnicaEquipo?.TipoModelo">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="codigo">Código</label>
+                                <input type="text" class="form-control" id="codigo" name="Codigo" value="@Model.FichaTecnicaEquipo?.Codigo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="corriente">Corriente</label>
+                                <input type="text" class="form-control" id="corriente" name="Corriente" value="@Model.FichaTecnicaEquipo?.Corriente">
+                            </div>
+                            <div class="form-group">
+                                <label for="potencia">Potencia</label>
+                                <input type="text" class="form-control" id="potencia" name="Potencia" value="@Model.FichaTecnicaEquipo?.Potencia">
+                            </div>
+                            <div class="form-group">
+                                <label for="velocidad">Velocidad</label>
+                                <input type="text" class="form-control" id="velocidad" name="Velocidad" value="@Model.FichaTecnicaEquipo?.Velocidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="temperatura">Temperatura</label>
+                                <input type="text" class="form-control" id="temperatura" name="Temperatura" value="@Model.FichaTecnicaEquipo?.Temperatura">
+                            </div>
+                            <div class="form-group">
+                                <label for="canales">Canales</label>
+                                <input type="text" class="form-control" id="canales" name="Canales" value="@Model.FichaTecnicaEquipo?.Canales">
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaOperatividad">Fecha de Operatividad</label>
+                                <input type="date" class="form-control" id="fechaOperatividad" name="FechaOperatividad" value="@Model.FichaTecnicaEquipo?.FechaOperatividad.ToString("yyyy-MM-dd")" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaVigencia">Fecha de Vigencia</label>
+                                <input type="date" class="form-control" id="fechaVigencia" name="FechaVigencia" value="@(Model.FichaTecnicaEquipo?.FechaVigencia?.ToString("yyyy-MM-dd"))">
+                            </div>
+                            <div class="form-group">
+                                <label for="frecuenciaCalibracion">Frecuencia de Calibración</label>
+                                <input type="text" class="form-control" id="frecuenciaCalibracion" name="FrecuenciaCalibracion" value="@Model.FichaTecnicaEquipo?.FrecuenciaCalibracion">
+                            </div>
+                            <div class="form-group">
+                                <label for="frecuenciaMantenimiento">Frecuencia de Mantenimiento</label>
+                                <input type="text" class="form-control" id="frecuenciaMantenimiento" name="FrecuenciaMantenimiento" value="@Model.FichaTecnicaEquipo?.FrecuenciaMantenimiento">
+                            </div>
+                            <div class="form-group">
+                                <label for="instruccionOperacion">Instrucción de Operación</label>
+                                <textarea class="form-control" id="instruccionOperacion" name="InstruccionOperacion" rows="3">@Model.FichaTecnicaEquipo?.InstruccionOperacion</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="ActualizarFichaTecnica()">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para Agregar Historial de Mantenimiento -->
+<div class="modal fade" id="agregarMantenimientoModal" tabindex="-1" role="dialog" aria-labelledby="agregarMantenimientoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarMantenimientoModalLabel">Agregar Historial de Mantenimiento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="agregarMantenimientoForm">
+                    <input type="hidden" id="idEquipo" name="IdEquipo" value="@Model.Id" />
+                    <div class="form-group">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" class="form-control" id="fecha" name="Fecha" min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                    </div>
+                    <div class="form-group">
+                        <label for="lugarMantenimiento">Lugar de Mantenimiento</label>
+                        <input type="text" class="form-control" id="lugarMantenimiento" name="LugarMantenimiento">
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroInforme">N° de Informe</label>
+                        <input type="text" class="form-control" id="numeroInforme" name="NumeroInforme">
+                    </div>
+                    <div class="form-group">
+                        <label for="revisadoPor">Revisado por</label>
+                        <input type="text" class="form-control" id="revisadoPor" name="RevisadoPor">
+                    </div>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones (Opcional)</label>
+                        <textarea class="form-control" id="observaciones" rows="3" name="Observaciones"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" onclick="agregarMantenimiento()">+ Agregar Mantenimiento</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL PARA AGREGAR FALLA-->
+<div class="modal fade" id="agregarFallaModal" tabindex="-1" aria-labelledby="agregarFallaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarFallaModalLabel">Agregar Historial de Fallas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="fallaData">
+                    <input type="hidden" id="idEquipo" name="IdEquipo" value="@Model.Id" />
+                    <div class="mb-3">
+                        <label for="fechaFalla" class="form-label">Fecha</label>
+                        <input type="date" class="form-control" id="fechaFalla" name="Fecha" min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ocurrenciaFalla" class="form-label">Ocurrencia</label>
+                        <input type="text" class="form-control" id="ocurrenciaFalla" placeholder="Descripción de la falla" name="Ocurrencia">
+                    </div>
+                    <div class="mb-3">
+                        <label for="revisadoPorFalla" class="form-label">Revisado por</label>
+                        <input type="text" class="form-control" id="revisadoPorFalla" placeholder="Nombre del responsable" name="RevisadoPor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="observacionesFalla" class="form-label">Observaciones (Opcional)</label>
+                        <textarea class="form-control" id="observacionesFalla" rows="3" placeholder="Detalles adicionales" name="Observaciones"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" onclick="agreagarHisoriaFalla()">+ Agregar Falla</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!------------------------------   -->
+
+<div class="modal fade" id="informeMantenimientoModal" tabindex="-1" role="dialog" aria-labelledby="informeMantenimientoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="informeMantenimientoModalLabel">Informe de Mantenimiento</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if (Model.InformesMantenimiento != null && Model.InformesMantenimiento.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Lugar</th>
+                                <th>Número de Informe</th>
+                                <th>Revisado por</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var informe in Model.InformesMantenimiento)
+                            {
+                                <tr>
+                                    <td>@informe.Fecha.ToShortDateString()</td>
+                                    <td>@informe.LugarMantenimiento</td>
+                                    <td>@informe.NumeroInforme</td>
+                                    <td>@informe.RevisadoPor</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No hay informes de mantenimiento disponibles.</p>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bsdismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .table-sm th, .table-sm td {
+        padding: 0.25rem;
+        font-size: 0.9rem;
+    }
+</style>
+
+<!-- Agregar modales similares para informeCalibracionModal y historicoFallasModal -->
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var editarDatosModal = new bootstrap.Modal(document.getElementById('editarDatosModal'));
+            var editarFichaTecnicaModal = new bootstrap.Modal(document.getElementById('editarFichaTecnicaModal'));
+
+            $('#agregarFichaTecnicaModal').on('shown.bs.modal', function () {
+                console.log('Modal de ficha técnica abierto');
+            });
+
+            $('#agregarMantenimientoModal').on('shown.bs.modal', function () {
+                console.log('Modal de informe de mantenimiento abierto');
+            });
+
+            $('#informeCalibracionModal').on('shown.bs.modal', function () {
+                console.log('Modal de informe de calibración abierto');
+            });
+
+            $('#historicoFallasModal').on('shown.bs.modal', function () {
+                console.log('Modal de histórico de fallas abierto');
+            });
+
+            $('#agregarDatosModal').on('shown.bs.modal', function () {
+                console.log('Modal de agregar datos del equipo abierto');
+            });
+
+            $('[data-target="#agregarDatosModal"]').click(function () {
+                $('#agregarDatosModal').modal('show');
+            });
+
+            $('#editarDatosModal').on('shown.bs.modal', function () {
+                console.log('Modal de editar datos abierto');
+            });
+
+            $('[data-bs-target="#editarDatosModal"]').click(function () {
+                editarDatosModal.show();
+            });
+
+            $('editarFichaTecnicaModal').on('shown.bs.modal', function () {
+                console.log('Editar Ficha técnica');
+             })
+
+            $('[data-bs-target="#editarFichaTecnicaModal"]').click(function () {
+                editarFichaTecnicaModal.show();
+            });
+
+        });
+
+/*        function agregarDatosEquipo() {
+            var formData = new FormData(document.getElementById('agregarDatosForm'));
+            var datos = {};
+            formData.forEach((value, key) => {
+                datos[key] = value;
+            });
+
+            console.log('Datos a enviar:', datos); 
+
+            $.ajax({
+                url: '/Equipos/AgregarDatosEquipo',
+                type: 'POST',
+                contentType: false,
+                proccessData: false,
+                data: datos,
+                success: function (result) {
+                    if (result.success) {
+                        alert('Datos del equipo agregados correctamente');
+                        location.reload();
+                    } else {
+                        alert('Error al agregar los datos del equipo: ' + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                    console.error('Respuesta del servidor:', xhr.responseText);
+                    alert('Error al comunicarse con el servidor');
+                }
+            });
+        }
+*/
+
+        function agregarDatosEquipo() {
+            var formData = new FormData(document.getElementById('agregarDatosForm'));
+
+            $.ajax({
+                url: '/Equipos/AgregarDatosEquipo',
+                type: 'POST',
+                data: formData,
+                processData: false,  // Impide que jQuery procese los datos (necesario para enviar archivos)
+                contentType: false,  // Impide que jQuery establezca el tipo de contenido (necesario para multipart/form-data)
+                success: function (result) {
+                    if (result.success) {
+                        alert('Datos del equipo agregados correctamente');
+                        location.reload();
+                    } else {
+                        alert('Error al agregar los datos del equipo: ' + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                    console.error('Respuesta del servidor:', xhr.responseText);
+                    alert('Error al comunicarse con el servidor');
+                }
+            });
+        }
+
+        function guardarDatosEquipo() {
+            var datos = {
+                Id: @Model.Id, 
+                Procesador: $("#procesador").val(),
+                SistemaOperativo: $("#sistemaOperativo").val(),
+                Memoria: $("#memoria").val(),
+                AnoFabricacion: $("#anoFabricacion").val(),
+                Manual: $("#manual").val()
+            };
+
+            $.ajax({
+                url: '/Equipos/ActualizarDatosEquipo',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(datos),
+                success: function (result) {
+                    if (result.success) {
+                        alert('Datos actualizados correctamente');
+                        location.reload();
+                    } else {
+                        alert('Error al actualizar los datos: ' + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                    alert('Error al comunicarse con el servidor');
+                }
+            });
+        }
+
+        function guardarFichaTecnica() {
+            var formData = new FormData(document.getElementById('agregarFichaTecnicaForm'));
+            var datos = {};
+            formData.forEach((value, key) => {
+                if (key === 'AnoFabricacion' || key === 'FechaOperatividad' || key === 'FechaVigencia') {
+                    datos[key] = value ? new Date(value).toISOString() : null;
+                } else {
+                    datos[key] = value;
+                }
+            });
+            //datos.Id = $("#fichaTecnicaId").val();
+            datos.IdEquipo = $("#equipoIdFicha").val();
+
+            console.log('Datos a enviar:', datos);
+
+            $.ajax({
+                url: '/Equipos/GuardarFichaTecnica',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(datos),
+                success: function (result) {
+                    if (result.success) {
+                        alert('Ficha técnica actualizada correctamente');
+                        location.reload();
+                    } else {
+                        console.error('Error al actualizar la ficha técnica:', result.message);
+                        if (result.errors) {
+                            console.error('Errores de validación:', result.errors);
+                        }
+                        alert('Error al actualizar la ficha técnica: ' + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                    console.error('Respuesta del servidor:', xhr.responseText);
+                    alert('Error al comunicarse con el servidor');
+                }
+            });
+        }
+
+        function ActualizarFichaTecnica() {
+            var formData = new FormData(document.getElementById('editarFichaTecnicaForm'));
+            var datos = {};
+            formData.forEach((value, key) => {
+                if (key === 'AnoFabricacion' || key === 'FechaOperatividad' || key === 'FechaVigencia') {
+                    datos[key] = value ? new Date(value).toISOString() : null;
+                } else {
+                    datos[key] = value;
+                }
+            });
+            //datos.Id = $("#fichaTecnicaId").val();
+            datos.IdEquipo = $("#equipoIdFicha").val();
+
+            console.log('Datos a enviar:', datos);
+
+            $.ajax({
+                url: '/Equipos/ActualizarFichaTecnica',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(datos),
+                success: function (result) {
+                    if (result.success) {
+                        alert('Ficha técnica actualizada correctamente');
+                        location.reload();
+                    } else {
+                        console.error('Error al actualizar la ficha técnica:', result.message);
+                        if (result.errors) {
+                            console.error('Errores de validación:', result.errors);
+                        }
+                        alert('Error al actualizar la ficha técnica: ' + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                    console.error('Respuesta del servidor:', xhr.responseText);
+                    alert('Error al comunicarse con el servidor');
+                }
+            });
+        }
+
+        function agregarMantenimiento() {
+            const mantenimientoDatos = document.getElementById('agregarMantenimientoForm');
+            const mantenimientoData = new FormData(mantenimientoDatos);
+            const mantenimientoObject = Object.fromEntries(mantenimientoData.entries());
+
+            fetch('/Equipos/GuardarInformeMantenimiento', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json', // Especificar el tipo de contenido como JSON
+            },
+            body: JSON.stringify(mantenimientoObject), // Convertir el objeto a JSON
+            })
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(result => {
+                if (result.success) {
+                    alert('Datos actualizados correctamente');
+                    location.reload();
+                } else {
+                    alert('Error al actualizar los datos: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+                alert('Error al comunicarse con el servidor');
+            });
+        }
+
+        function agreagarHisoriaFalla(){
+            const fallaData = document.getElementById('fallaData')
+            const fallaForm = new FormData(fallaData)
+            const data =  Object.fromEntries(fallaForm.entries())
+            console.log(data)
+
+                fetch('/Equipos/GuardarHistoricoFallaEquipo', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json', // Especificar el tipo de contenido como JSON
+            },
+            body: JSON.stringify(data), // Convertir el objeto a JSON
+            })
+            .then(response => response.json()) // Convertir la respuesta a JSON
+            .then(result => {
+                if (result.success) {
+                    alert('Datos actualizados correctamente');
+                    location.reload();
+                } else {
+                    alert('Error al actualizar los datos: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+                alert('Error al comunicarse con el servidor');
+            });
+        }
+
+        // Función para abrir modales manualmente si es necesario
+        function abrirModal(modalId) {
+            $('#' + modalId).modal('show');
+        }
+
+        // Manejadores de eventos para los botones si los data-attributes no funcionan
+        $('#btnAgregarFichaTecnica').click(function () {
+            abrirModal('agregarFichaTecnicaModal');
+        });
+
+        $('#btnEditarDatosEquipo').click(function () {
+            abrirModal('editarDatosModal');
+        });
+
+        $('#btnVerInformeMantenimiento').click(function () {
+            abrirModal('informeMantenimientoModal');
+        });
+
+        $('#btnVerInformeCalibracion').click(function () {
+            abrirModal('informeCalibracionModal');
+        });
+
+        $('#btnVerHistoricoFallas').click(function () {
+            abrirModal('historicoFallasModal');
+        });
+    </script>
+}

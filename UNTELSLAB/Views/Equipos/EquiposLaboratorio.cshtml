@@ -1,0 +1,163 @@
+﻿@model IEnumerable<UNTELSLAB.Models.EquipoLaboratorio>
+@{
+    ViewData["Title"] = "Equipos de Laboratorios";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">EQUIPOS DE LABORATORIOS</h1>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="laboratorioFilter" class="form-label">Filtrar por:</label>
+            <select id="laboratorioFilter" class="form-select">
+                <option value="">Todos los Laboratorios</option>
+                @foreach (var item in (SelectList)ViewBag.Laboratorios)
+                {
+                    <option value="@item.Value">@item.Text</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="equipoFilter" class="form-label">Equipo:</label>
+            <select id="equipoFilter" class="form-select">
+                <option value="">TODOS</option>
+                @foreach (var equipo in Model)
+                {
+                    <option value="@equipo.Id">@equipo.Nombre</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <a href="@Url.Action("Create", "Equipos")" class="btn btn-primary">Agregar Equipo</a>
+        </div>
+    </div>
+
+    <div id="equiposGrid" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var equipo in Model)
+        {
+            <div class="col equipo-item" data-laboratorio-id="@equipo.IdLaboratorio">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@equipo.Nombre</h5>
+                        <p class="card-text">Laboratorio: @equipo.Laboratorio?.Nombre</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-sm btn-primary btn-editar"
+                               data-id="@equipo.Id"
+                               data-nombre="@equipo.Nombre"
+                               data-idlaboratorio="@equipo.IdLaboratorio">Editar</a>
+                            <a href="@Url.Action("Details", "Equipos", new { id = equipo.Id })" class="btn btn-sm btn-info">Ver</a>
+                            <button class="btn btn-sm btn-danger delete-equipo" data-id="@equipo.Id">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- MODAL PARA EDITAR NOMBRE DEL EQUIPO-->
+    <div id="editModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Equipo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" id="editId" name="Id" />
+                        <div class="form-group">
+                            <label for="editNombre">Nombre</label>
+                            <input type="text" class="form-control" id="editNombre" name="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editIdLaboratorio">Laboratorio</label>
+                            <select class="form-control" id="editIdLaboratorio" name="IdLaboratorio" required>
+                                @foreach (var item in (SelectList)ViewBag.Laboratorios)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="saveEdit">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#laboratorioFilter, #equipoFilter").change(function () {
+                var labId = $("#laboratorioFilter").val();
+                var equipoId = $("#equipoFilter").val();
+                $(".equipo-item").hide();
+                if (equipoId) {
+                    $(".equipo-item[data-id='" + equipoId + "']").show();
+                } else if (labId) {
+                    $(".equipo-item[data-laboratorio-id='" + labId + "']").show();
+                } else {
+                    $(".equipo-item").show();
+                }
+            });
+
+            $(".delete-equipo").click(function () {
+                var id = $(this).data('id');
+                if (confirm("¿Está seguro de que desea eliminar este equipo?")) {
+                    $.ajax({
+                        url: '@Url.Action("Delete", "Equipos")/' + id,
+                        type: 'DELETE',
+                        success: function () {
+                            location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Error al eliminar: ", error);
+                            alert("Hubo un error al intentar eliminar el equipo.");
+                        }
+                    });
+                }
+            });
+
+            $('.btn-editar').click(function () {
+                var id = $(this).data('id');
+                var nombre = $(this).data('nombre');
+                var idLaboratorio = $(this).data('idlaboratorio');
+
+                $('#editId').val(id);
+                $('#editNombre').val(nombre);
+                $('#editIdLaboratorio').val(idLaboratorio);
+
+                $('#editModal').modal('show');
+            });
+
+            // Manejar el guardado de la edición
+            $('#saveEdit').click(function () {
+                var data = $('#editForm').serialize();
+                $.ajax({
+                    url: '@Url.Action("Edit", "Equipos")',
+                    type: 'POST',
+                    data: data,
+                    success: function (result) {
+                        if (result.success) {
+                            $('#editModal').modal('hide');
+                            location.reload();
+                        } else {
+                            alert('Error al guardar los cambios: ' + result.message);
+                        }
+                    },
+                    error: function () {
+                        alert('Ocurrió un error al guardar los cambios.');
+                    }
+                });
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,231 @@
+﻿@model IEnumerable<UNTELSLAB.Models.Laboratorio>
+@{
+    ViewData["Title"] = "Laboratorios Sistemas";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
+            <div class="position-sticky">
+                <div class="sidebar-header">
+                    <img src="/img/UNTELS.png" alt="Logo" class="logo">
+                </div>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-flask"></i> Laboratorios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Equipos" asp-action="EquiposLaboratorio">
+                            <i class="fas fa-desktop"></i> Equipos de laboratorio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-clipboard-list"></i> Inventario
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-tools"></i> Mantenimiento
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-light">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">LABORATORIOS SISTEMAS</h1>
+                <div class="user-info">
+                    Bienvenido Administrador
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                @foreach (var lab in Model)
+                {
+                    <div class="col">
+                        <div class="card h-100 shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">@lab.Nombre</h5>
+                                <p class="card-text">Ubicación: @lab.RefUbicacion</p>
+                                <p class="card-text">Aforo: @lab.Aforo</p>
+                                <p class="card-text">Estado: @lab.EstadoLaboratorio</p>
+                                <p class="card-text">
+                                    <i class="fas @(lab.ServicioInternet ? "fa-wifi" : "fa-wifi-slash")"></i>
+                                    @(lab.ServicioInternet ? "Con Internet" : "Sin Internet")
+                                </p>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-primary edit-lab" data-id="@lab.Id">Editar</button>
+                                    <button class="btn btn-sm btn-danger delete-lab" data-id="@lab.Id">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <button id="addLabBtn" class="btn btn-primary btn-lg position-fixed" style="bottom: 20px; right: 20px;">
+                <i class="fas fa-plus"></i> Agregar Laboratorio
+            </button>
+        </main>
+    </div>
+</div>
+
+<!-- Modal para agregar/editar laboratorio -->
+<div class="modal fade" id="labModal" tabindex="-1" aria-labelledby="labModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="labModalLabel">Agregar/Editar Laboratorio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="labForm">
+                    <input type="hidden" id="labId">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="refUbicacion" class="form-label">Ubicación:</label>
+                        <input type="text" class="form-control" id="refUbicacion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="aforo" class="form-label">Aforo:</label>
+                        <input type="number" class="form-control" id="aforo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="estadoLaboratorio" class="form-label">Estado:</label>
+                        <select class="form-select" id="estadoLaboratorio" required>
+                            <option value="ACTIVO">ACTIVO</option>
+                            <option value="INACTIVO">INACTIVO</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="servicioInternet">
+                        <label class="form-check-label" for="servicioInternet">Servicio de Internet</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#addLabBtn").click(function () {
+                $("#labForm")[0].reset();
+                $("#labId").val('');
+                $("#labModalLabel").text("Agregar Laboratorio");
+                $("#labModal").modal('show');
+            });
+
+            $(".edit-lab").click(function () {
+                var id = $(this).data('id');
+                $.get("/Laboratorios/Edit/" + id, function (data) {
+                    $("#labId").val(data.id);
+                    $("#nombre").val(data.nombre);
+                    $("#refUbicacion").val(data.refUbicacion);
+                    $("#aforo").val(data.aforo);
+                    $("#estadoLaboratorio").val(data.estadoLaboratorio);
+                    $("#servicioInternet").prop('checked', data.servicioInternet);
+                    $("#labModalLabel").text("Editar Laboratorio");
+                    $("#labModal").modal('show');
+                });
+            });
+
+            $("#labForm").submit(function (e) {
+                e.preventDefault();
+                var lab = {
+                    Id: $("#labId").val() ? parseInt($("#labId").val()) : 0,
+                    Nombre: $("#nombre").val(),
+                    RefUbicacion: $("#refUbicacion").val(),
+                    Aforo: parseInt($("#aforo").val()),
+                    EstadoLaboratorio: $("#estadoLaboratorio").val(),
+                    ServicioInternet: $("#servicioInternet").is(':checked')
+                };
+
+                $.ajax({
+                    url: lab.Id ? '/Laboratorios/Edit' : '/Laboratorios/Create',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(lab),
+                    success: function (result) {
+                        $("#labModal").modal('hide');
+                        location.reload();
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.responseText);
+                        alert("Ha ocurrido un error al guardar el laboratorio: " + xhr.responseText);
+                    }
+                });
+            });
+
+            $(".delete-lab").click(function () {
+                var id = $(this).data('id');
+                if (confirm("¿Está seguro de que desea eliminar este laboratorio?")) {
+                    $.post("/Laboratorios/Delete/" + id, function () {
+                        location.reload();
+                    });
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    body {
+        font-size: 16px;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        padding: 48px 0 0;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+
+        .sidebar .nav-link {
+            font-weight: 500;
+            color: #fff;
+        }
+
+            .sidebar .nav-link.active {
+                color: #007bff;
+            }
+
+    .logo {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        transition: transform .2s;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+    #addLabBtn {
+        z-index: 1000;
+    }
+</style>

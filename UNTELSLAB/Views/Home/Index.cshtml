@@ -1,0 +1,83 @@
+﻿﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión Docente</title>
+    <link rel="stylesheet" href="~/css/home.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3>UNTELS</h3>
+            </div>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Asignaturas</a></li>
+                <li><a href="#">Marcación</a></li>
+                <li><a href="#">Aula Virtual</a></li>
+                <li><a href="#">Exámenes en línea</a></li>
+                <li><a href="#">Meet</a></li>
+                <li><a href="#">Mi perfil</a></li>
+                <li><a href="#">Reportes</a></li>
+                <li><a href="#">Mi contraseña</a></li>
+                <li><a href="#">Libros electrónicos</a></li>
+                <li><a href="#">Manuales</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Sistema de Gestión Docente</h1>
+                <div class="user-info">
+                    <p>Test Test Test 01</p>
+                    <a href="#">Salir</a>
+                </div>
+            </header>
+
+            <div class="breadcrumbs">
+                <p>Inicio > Principal</p>
+            </div>
+
+            <div class="cards">
+                <div class="card" style="background-color: #f39c12;">
+                    <p>Comunicado</p>
+                    <p>Curso Internacional</p>
+                </div>
+                <div class="card" style="background-color: #e74c3c;">
+                    <p>Contraseña caduca</p>
+                    <p>CADUCARÁ EN 1 DÍAS</p>
+                </div>
+                <div class="card" style="background-color: #27ae60;">
+                    <p>Semana de clase</p>
+                    <p>3</p>
+                </div>
+                <div class="card" style="background-color: #8e44ad;">
+                    <p>Avance de Perfil</p>
+                    <p>0</p>
+                </div>
+                <div class="card" style="background-color: #3498db;" id="Laboratorio" data-url="/Laboratorios/index">
+                    <p>Laboratorio</p>
+                    <p>1</p>
+                </div>
+            </div>
+
+            <div class="group-info">
+                <h2>Grupos de Asignaturas | Matrícula 2024-II</h2>
+                <p>Suceso! Usted presenta 0 grupo de Asignaturas.</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="~/js/Home.js"></script>
+</html>

@@ -1,0 +1,91 @@
+﻿@model UNTELSLAB.Models.EquipoLaboratorio
+@{
+    ViewData["Title"] = "Detalles del Equipo";
+}
+<div class="container-fluid">
+    <h1 class="mt-4">@Model.Nombre</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Datos de Equipo</h2>
+            <div id="datosEquipo">
+                <p>Nombre: @Model.Nombre</p>
+                <p>Laboratorio: @(Model.Laboratorio?.Nombre ?? "No especificado")</p>
+                @if (Model.DatosEquipo != null)
+                {
+                    <p>Procesador: @Model.DatosEquipo.Procesador</p>
+                    <p>Sistema Operativo: @Model.DatosEquipo.SistemaOperativo</p>
+                    <p>Memoria: @Model.DatosEquipo.Memoria</p>
+                    <p>Año de Fabricación: @Model.DatosEquipo.AnoFabricacion</p>
+                    <p>Manual: @(Model.DatosEquipo.Manual)</p>
+                }
+            </div>
+            <button id="editarDatosBtn" class="btn btn-warning mt-3">Editar Datos del Equipo</button>
+        </div>
+        <div class="col-md-6">
+            <h2>Ficha técnica</h2>
+            @if (Model.FichaTecnicaEquipo != null)
+            {
+                <table class="table table-bordered">
+                    <tr>
+                        <th>MARCA:</th>
+                        <td>@Model.FichaTecnicaEquipo.Marca</td>
+                        <th>TIPO / MODELO:</th>
+                        <td>@Model.FichaTecnicaEquipo.TipoModelo</td>
+                    </tr>
+                    <tr>
+                        <th>SERIE:</th>
+                        <td>@Model.FichaTecnicaEquipo.Serie</td>
+                        <th>CÓDIGO:</th>
+                        <td>@Model.FichaTecnicaEquipo.Codigo</td>
+                    </tr>
+                    <!-- Añade más filas según sea necesario -->
+                </table>
+            }
+            else
+            {
+                <p>No hay información de ficha técnica disponible.</p>
+            }
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <button id="verMantenimientoBtn" class="btn btn-primary btn-block">VER INFORME DE MANTENIMIENTO</button>
+        </div>
+        <div class="col-md-4">
+            <button id="verCalibracionBtn" class="btn btn-primary btn-block">VER INFORME DE CALIBRACIÓN</button>
+        </div>
+        <div class="col-md-4">
+            <button id="verFallasBtn" class="btn btn-primary btn-block">VER HISTÓRICO DE FALLAS</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modales para mantenimiento, calibración y fallas -->
+<div class="modal fade" id="mantenimientoModal" tabindex="-1" aria-labelledby="mantenimientoModalLabel" aria-hidden="true">
+    <!-- Contenido del modal de mantenimiento -->
+</div>
+<div class="modal fade" id="calibracionModal" tabindex="-1" aria-labelledby="calibracionModalLabel" aria-hidden="true">
+    <!-- Contenido del modal de calibración -->
+</div>
+<div class="modal fade" id="fallasModal" tabindex="-1" aria-labelledby="fallasModalLabel" aria-hidden="true">
+    <!-- Contenido del modal de fallas -->
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#editarDatosBtn").click(function () {
+                // Código para abrir modal de edición de datos
+            });
+            $("#verMantenimientoBtn").click(function () {
+                $("#mantenimientoModal").modal('show');
+            });
+            $("#verCalibracionBtn").click(function () {
+                $("#calibracionModal").modal('show');
+            });
+            $("#verFallasBtn").click(function () {
+                $("#fallasModal").modal('show');
+            });
+        });
+    </script>
+}
