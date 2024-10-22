@@ -33,7 +33,7 @@ namespace UNTELSLAB.Models
         public string? Resolucion { get; set; }
 
         [Column("ano_fabricacion")]
-        public DateTime? AnoFabricacion { get; set; }
+        public DateOnly? AnoFabricacion { get; set; }
 
         [Column("ubicacion")]
         public string? Ubicacion { get; set; }
@@ -60,10 +60,10 @@ namespace UNTELSLAB.Models
         public string? Canales { get; set; }
 
         [Column("fecha_operatividad")]
-        public DateTime FechaOperatividad { get; set; }
+        public DateOnly FechaOperatividad { get; set; }
 
         [Column("fecha_vigencia")]
-        public DateTime? FechaVigencia { get; set; }
+        public DateOnly? FechaVigencia { get; set; }
 
         [Column("frecuencia_calibracion")]
         public string? FrecuenciaCalibracion { get; set; }

@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\views\\equipos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\views\\equipos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\models\\historicofallasequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\models\\historicofallasequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\models\\fichatecnicaequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\models\\fichatecnicaequipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\views\\mantenimiento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\views\\mantenimiento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\controllers\\equiposcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\controllers\\equiposcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\models\\equipolaboratorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\models\\equipolaboratorio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\models\\datosequipodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\models\\datosequipodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\views\\equipos\\equiposlaboratorio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\views\\equipos\\equiposlaboratorio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\controllers\\equiposcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\controllers\\equiposcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\untelslab\\untelslab\\controllers\\mantenimientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\controllers\\mantenimientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,65 +54,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DatosEquipoDTO.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\DatosEquipoDTO.cs",
-              "RelativeDocumentMoniker": "UNTELSLAB\\Models\\DatosEquipoDTO.cs",
-              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\DatosEquipoDTO.cs",
-              "RelativeToolTip": "UNTELSLAB\\Models\\DatosEquipoDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "HistoricoFallasEquipo.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\HistoricoFallasEquipo.cs",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Models\\HistoricoFallasEquipo.cs",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\HistoricoFallasEquipo.cs",
+              "RelativeToolTip": "UNTELSLAB\\Models\\HistoricoFallasEquipo.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T17:53:53.023Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EquipoLaboratorio.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\EquipoLaboratorio.cs",
-              "RelativeDocumentMoniker": "UNTELSLAB\\Models\\EquipoLaboratorio.cs",
-              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\EquipoLaboratorio.cs",
-              "RelativeToolTip": "UNTELSLAB\\Models\\EquipoLaboratorio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAB0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T17:20:47.344Z",
+              "WhenOpened": "2024-10-22T21:56:29.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "UNTELSLAB\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "UNTELSLAB\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "FichaTecnicaEquipo.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\FichaTecnicaEquipo.cs",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Models\\FichaTecnicaEquipo.cs",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\FichaTecnicaEquipo.cs",
+              "RelativeToolTip": "UNTELSLAB\\Models\\FichaTecnicaEquipo.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAywEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T17:19:03.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Views\\Equipos\\Details.cshtml",
-              "RelativeDocumentMoniker": "UNTELSLAB\\Views\\Equipos\\Details.cshtml",
-              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Views\\Equipos\\Details.cshtml",
-              "RelativeToolTip": "UNTELSLAB\\Views\\Equipos\\Details.cshtml",
-              "ViewState": "AgIAAE8BAAAAAAAAAAD4v2sBAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-18T02:07:11.017Z",
+              "WhenOpened": "2024-10-22T21:55:03.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "EquipoLaboratorio.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\EquipoLaboratorio.cs",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Models\\EquipoLaboratorio.cs",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Models\\EquipoLaboratorio.cs",
+              "RelativeToolTip": "UNTELSLAB\\Models\\EquipoLaboratorio.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T21:35:47.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EquiposLaboratorio.cshtml",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "RelativeToolTip": "UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-22T21:04:26.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Views\\Mantenimiento\\Index.cshtml",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Views\\Mantenimiento\\Index.cshtml",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Views\\Mantenimiento\\Index.cshtml",
+              "RelativeToolTip": "UNTELSLAB\\Views\\Mantenimiento\\Index.cshtml",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAUwIMAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-22T20:38:12.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MantenimientoController.cs",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Controllers\\MantenimientoController.cs",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Controllers\\MantenimientoController.cs",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Controllers\\MantenimientoController.cs",
+              "RelativeToolTip": "UNTELSLAB\\Controllers\\MantenimientoController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T20:02:03.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "EquiposController.cs",
               "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Controllers\\EquiposController.cs",
               "RelativeDocumentMoniker": "UNTELSLAB\\Controllers\\EquiposController.cs",
               "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\Controllers\\EquiposController.cs",
               "RelativeToolTip": "UNTELSLAB\\Controllers\\EquiposController.cs",
-              "ViewState": "AgIAACUBAAAAAAAAAAAAACcBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T00:10:31.728Z",
               "EditorCaption": ""
