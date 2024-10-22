@@ -361,6 +361,7 @@
             <div class="modal-body">
                 <form id="agregarDatosForm" enctype="multipart/form-data">
                     <input type="hidden" id="idEquipo" name="IdEquipo" value="@Model.Id" />
+                    
                     <div class="form-group">
                         <label for="procesador">Procesador</label>
                         <input type="text" class="form-control" id="procesador" name="Procesador">
@@ -375,7 +376,7 @@
                     </div>
                     <div class="form-group">
                         <label for="manual">Manual</label>
-                        <input type="file" class="form-control" id="manual" name="Manual">
+                        <input type="file" class="form-control" id="manual" name="Manual" accept=".pdf,application/pdf">
                     </div>
                     <div class="form-group">
                         <label for="anoFabricacion">Año de Fabricación</label>
@@ -730,7 +731,7 @@
 </div>
 
 
-<!------------------------------   -->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <div class="modal fade" id="informeMantenimientoModal" tabindex="-1" role="dialog" aria-labelledby="informeMantenimientoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -778,6 +779,7 @@
     </div>
 </div>
 
+<!------------------------------------------------------------------------------------------------------------------------>
 
 
 
