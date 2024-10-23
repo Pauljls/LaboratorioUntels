@@ -9,9 +9,9 @@ namespace UNTELSLAB.Controllers
     {
 
         private readonly ApplicationDbContext _context;
-        private readonly ILogger<EquiposController> _logger;
+        private readonly ILogger<MantenimientoController> _logger;
         private readonly IWebHostEnvironment _env;
-        public MantenimientoController(ApplicationDbContext context, ILogger<EquiposController> logger, IWebHostEnvironment env)
+        public MantenimientoController(ApplicationDbContext context, ILogger<MantenimientoController> logger, IWebHostEnvironment env)
         {
             _context = context;
             _logger = logger;

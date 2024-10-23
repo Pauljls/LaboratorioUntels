@@ -281,7 +281,6 @@ namespace UNTELSLAB.Controllers
                 equipo.DatosEquipo.SistemaOperativo = datos.SistemaOperativo;
                 equipo.DatosEquipo.Memoria = datos.Memoria;
                 equipo.DatosEquipo.AnoFabricacion = datos.AnoFabricacion;
-                equipo.DatosEquipo.Manual = datos.Manual;
 
                 _context.SaveChanges();
 
@@ -305,6 +304,9 @@ namespace UNTELSLAB.Controllers
             {
                 var equipoLaboratorio = _context.EquipoLaboratorio.FirstOrDefault(
                     e => e.Id == datos.idEquipo);
+                if (equipoLaboratorio == null) {
+                    throw new Exception("No se encontro el equipo especificado");
+                }
                 //Guardar la foto en la carpeta uploads
                 var uploadsRootFolder = Path.Combine(_env.WebRootPath, "Uploads");
                 var equipoFolder = Path.Combine(uploadsRootFolder, equipoLaboratorio.Nombre);

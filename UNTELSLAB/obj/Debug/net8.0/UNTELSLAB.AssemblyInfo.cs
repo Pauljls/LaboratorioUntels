@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UNTELSLAB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab7e8789dadf08c0456ed02e61b23dff86f2c57d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f62268b74854ace10bcec7a83c06dbae5d822f51")]
 [assembly: System.Reflection.AssemblyProductAttribute("UNTELSLAB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UNTELSLAB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

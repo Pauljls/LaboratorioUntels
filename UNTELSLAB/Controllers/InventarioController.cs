@@ -1,14 +1,31 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using UNTELSLAB.Data;
 
 namespace UNTELSLAB.Controllers
 {
     public class InventarioController : Controller
     {
         // GET: InventarioController
-        public ActionResult Index()
+
+        private readonly ILogger<InventarioController> _logger;
+        private readonly ApplicationDbContext _context;
+        
+        public InventarioController(ILogger<InventarioController> logger, ApplicationDbContext context)
         {
-            return View();
+            _logger = logger;
+            _context = context;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var equipos = await _context.EquipoLaboratorio
+                .Include(e => e.Laboratorio)
+                .Include(e => e.FichaTecnicaEquipo)
+                .Include(e => e.DatosEquipo)
+                .ToListAsync();
+            return View(equipos);
         }
 
         // GET: InventarioController/Details/5

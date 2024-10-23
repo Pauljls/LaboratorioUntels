@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WNDchKvLZTw4zvyh6/I98KEeSOcv6y+tB78/te+3v/c=",
+  "Hash": "BuWAVYES3RaqekZfxrTjM/EzxATspA+OLSLnVnaYqOQ=",
   "Source": "UNTELSLAB",
   "BasePath": "_content/UNTELSLAB",
   "Mode": "Default",
@@ -1252,12 +1252,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\84e959e1-73c1-43a9-b59c-3a879c9c2aa9.pdf",
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO\\28c02459-38f7-4be7-a086-fe46597cea34.pdf",
       "SourceId": "UNTELSLAB",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\wwwroot\\",
       "BasePath": "_content/UNTELSLAB",
-      "RelativePath": "Uploads/EQUIPO-DIABLITO-06/84e959e1-73c1-43a9-b59c-3a879c9c2aa9.pdf",
+      "RelativePath": "Uploads/EQUIPO-DIABLITO/28c02459-38f7-4be7-a086-fe46597cea34.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,7 +1268,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\84e959e1-73c1-43a9-b59c-3a879c9c2aa9.pdf"
+      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO\\28c02459-38f7-4be7-a086-fe46597cea34.pdf"
     }
   ]
 }
