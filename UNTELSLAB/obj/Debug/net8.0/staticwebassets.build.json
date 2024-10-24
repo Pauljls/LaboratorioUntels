@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BuWAVYES3RaqekZfxrTjM/EzxATspA+OLSLnVnaYqOQ=",
+  "Hash": "7awtlvXZoNUt/rQq/fQX3EElrFu4SzeOLN0X1qekz7Y=",
   "Source": "UNTELSLAB",
   "BasePath": "_content/UNTELSLAB",
   "Mode": "Default",
@@ -1269,6 +1269,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO\\28c02459-38f7-4be7-a086-fe46597cea34.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-10\\a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf",
+      "SourceId": "UNTELSLAB",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\wwwroot\\",
+      "BasePath": "_content/UNTELSLAB",
+      "RelativePath": "Uploads/EQUIPO-DIABLITO-10/a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-10\\a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf"
     }
   ]
 }

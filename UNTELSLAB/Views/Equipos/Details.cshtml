@@ -90,7 +90,7 @@
                         {
                             if (Model.InformesMantenimiento.Count > 0)
                             {
-                                <div class="card">
+                                <div>
                                     <div class="card-header">
                                         <h5 class="card-title">Informe de mantenimiento</h5>
                                         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
@@ -124,15 +124,31 @@
                             }
                             else
                             {
-                                <div class="alert alert-info">No hay datos de mantenimiento disponibles.</div>
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
+                                <div class="container row">
+                                    <div class="col text-center">
+                                        <h5>Informe de Mantenimiento</h5>
+                                    </div>
+                                    <div class="col text-center">
+                                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
+                                            + Agregar 
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="alert alert-info my-3">
+                                    No hay datos de mantenimiento disponibles.
+                                </div>
+                                
                             }
                         }
                         else
                         {
+                            <div>
+                                <h4>Informe mantenimiento</h4>
+                            </div>
                             <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
                         }
                     </div>
+                    <!--HISTORIAL DE FALLAS-->
 
                     <div class="mt-5 mr-3">
                         @if (Model.DatosEquipo!=null && Model.FichaTecnicaEquipo!=null)
@@ -171,27 +187,30 @@
                             }
                             else
                             {
-                            
-                                <div class="d-flex flex-column">
-                                <div class="d-flex flex-row justify-content-between align-items-center">
-                                <div>
-                                    <h4>Historico de fallas</h4>
+                                <div class="my-3">
+                                    <div class="container row">
+                                        <div class="col text-center">
+                                            <h5>Historico de <br />fallas</h5>
+                                        </div>
+                                        <div class="col text-center">
+                                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
+                                                + Agregar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-info my-3">
+                                        No hay datos de mantenimiento disponibles.
+                                    </div>
                                 </div>
-                                <div>
-                                    <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar Falla </button>
-                                </div>
-                                </div>
-                                <div>
-                                    <p>No hay datos del equipo disponibles.</p>  
-                                </div>
-                                </div>
-
-
-                                }
+                            }
                         }else
                         {
-                           <h4> Historico de fallas</h4>
-                            <p>Necesita llenar Datos y ficha tecnica antes</p>
+                            <div class="my-3">
+                                <div>
+                                    <h4>Historico Fallas</h4>
+                                </div>
+                                <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
+                            </div>
                         }
                     </div>
                      </div>
@@ -267,7 +286,7 @@
                                 <strong>INSTRUCCIÓN DE OPERACIÓN:</strong>
                                 <p>@Model.FichaTecnicaEquipo.InstruccionOperacion</p>
                             </div>
-                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarFichaTecnicaModal">Editar Ficha Técnica</button>
+                            <button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#editarFichaTecnicaModal">Editar Ficha Técnica</button>
                 }
                 else
                 {

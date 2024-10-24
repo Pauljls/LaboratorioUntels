@@ -1024,6 +1024,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\UNTELSLAB.bundle.scp.css))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\EQUIPO-DIABLITO-10\a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>UNTELSLAB</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/UNTELSLAB</BasePath>
+      <RelativePath>Uploads/EQUIPO-DIABLITO-10/a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\EQUIPO-DIABLITO-10\a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Uploads\EQUIPO-DIABLITO\28c02459-38f7-4be7-a086-fe46597cea34.pdf))">
       <SourceType>Package</SourceType>
       <SourceId>UNTELSLAB</SourceId>
