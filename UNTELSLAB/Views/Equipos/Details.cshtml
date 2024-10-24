@@ -4,8 +4,8 @@
     ViewData["Title"] = "Detalles del Equipo";
 }
 
-<div class="container-fluid w-full">
-    <div class="row container-fluid w-full">
+<div class="container-fluid ">
+    <div class="row">
         <!-- Sidebar -->
         <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar">
             <div class="position-sticky">
@@ -43,154 +43,96 @@
         </nav>
 
         <!-- Contenido principal -->
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4 bg-light">
+            <div class="row d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">@Model.Nombre</h1>
             </div>
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div>
+                            <h4>Datos de Equipo</h4>
 
-            <div class="d-flex flex-nowrap flex-row">
-                <div class="col-md-6">
-                    <div>
-                        <h4>Datos de Equipo</h4>
-                    
-                        @if (Model.DatosEquipo != null)
-                        {
-                            <dl class="row">
-                                <dt class="col-sm-4">Procesador</dt>
-                                <dd class="col-sm-8">@Model.DatosEquipo.Procesador</dd>
-                                <dt class="col-sm-4">Sistema Operativo</dt>
-                                <dd class="col-sm-8">@Model.DatosEquipo.SistemaOperativo</dd>
-                                <dt class="col-sm-4">Memoria</dt>
-                                <dd class="col-sm-8">@Model.DatosEquipo.Memoria</dd>
-                                <dt class="col-sm-4">Año de Fabricación</dt>
-                                <dd class="col-sm-8">@Model.DatosEquipo.AnoFabricacion</dd>
-                                <dt class="col-sm-4">Manual</dt>
-                                <dd class="col-sm-8">
-                                    @if (!string.IsNullOrEmpty(Model.DatosEquipo.Manual))
-                                    {
-                                        <button href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#manuaModal">Ver</button>
-                                    }
-                                    else
-                                    {
-                                        <span>No disponible</span>
-                                    }
-                                </dd>
-                            </dl>
-                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarDatosModal">Editar Datos del Equipo</button>
-                        }
-                        else
-                        {
-                            <p>No hay datos del equipo disponibles.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarDatosModal">Agregar Datos del Equipo</button>
-                        }
-                    </div>
-                    <!--REPORTE MANTENIMIENTO-->
-                    <div class="mt-3">
-                        @if (Model.DatosEquipo != null && Model.FichaTecnicaEquipo != null)
-                        {
-                            if (Model.InformesMantenimiento.Count > 0)
+                            @if (Model.DatosEquipo != null)
                             {
-                                <div>
-                                    <div class="card-header">
-                                        <h5 class="card-title">Informe de mantenimiento</h5>
-                                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
-                                    </div>
-                                    <div class="card-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Fecha</th>
-                                                    <th>Lugar Mantenimiento</th>
-                                                    <th>Número de Informe</th>
-                                                    <th>Revisado por</th>
-                                                    <th>Observaciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (var mantenimiento in Model.InformesMantenimiento)
-                                                {
-                                                    <tr>
-                                                        <td>@mantenimiento.Fecha</td>
-                                                        <td>@mantenimiento.LugarMantenimiento</td>
-                                                        <td>@mantenimiento.NumeroInforme</td>
-                                                        <td>@mantenimiento.RevisadoPor</td>
-                                                        <td>@mantenimiento.Observaciones</td>
-                                                    </tr>
-                                                }
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                <dl class="row">
+                                    <dt class="col-sm-4">Procesador</dt>
+                                    <dd class="col-sm-8">@Model.DatosEquipo.Procesador</dd>
+                                    <dt class="col-sm-4">Sistema Operativo</dt>
+                                    <dd class="col-sm-8">@Model.DatosEquipo.SistemaOperativo</dd>
+                                    <dt class="col-sm-4">Memoria</dt>
+                                    <dd class="col-sm-8">@Model.DatosEquipo.Memoria</dd>
+                                    <dt class="col-sm-4">Año de Fabricación</dt>
+                                    <dd class="col-sm-8">@Model.DatosEquipo.AnoFabricacion</dd>
+                                    <dt class="col-sm-4">Manual</dt>
+                                    <dd class="col-sm-8">
+                                        @if (!string.IsNullOrEmpty(Model.DatosEquipo.Manual))
+                                        {
+                                            <button href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#manuaModal">Ver</button>
+                                        }
+                                        else
+                                        {
+                                            <span>No disponible</span>
+                                        }
+                                    </dd>
+                                </dl>
+                                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarDatosModal">Editar Datos del Equipo</button>
                             }
                             else
                             {
-                                <div class="container row">
-                                    <div class="col text-center">
-                                        <h5>Informe de Mantenimiento</h5>
-                                    </div>
-                                    <div class="col text-center">
-                                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
-                                            + Agregar 
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="alert alert-info my-3">
-                                    No hay datos de mantenimiento disponibles.
-                                </div>
-                                
+                                <p>No hay datos del equipo disponibles.</p>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarDatosModal">Agregar Datos del Equipo</button>
                             }
-                        }
-                        else
-                        {
-                            <div>
-                                <h4>Informe mantenimiento</h4>
-                            </div>
-                            <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
-                        }
-                    </div>
-                    <!--HISTORIAL DE FALLAS-->
+                        </div>
 
-                    <div class="mt-5 mr-3">
-                        @if (Model.DatosEquipo!=null && Model.FichaTecnicaEquipo!=null)
-                        {
-                            @if (Model.HistoricoFallas.Count > 0)
+                    </div>
+                    <div class="row">
+                        <div class="mt-5 mr-3">
+                            @if (Model.DatosEquipo != null && Model.FichaTecnicaEquipo != null)
                             {
-                                <div class="d-flex flex-row my-3">
-                                    <div class="d-flex justify-content align-items">
-                                        <h4>Informe de falla </h4>
-                                    </div>
-                                    <div class="d-flex justify-content align-items">
-                                        <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar Falla </button>
-                                    </div>
-                                </div>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Fecha</th>
-                                            <th>Ocurrencia Falla</th>
-                                            <th>Revisado por</th>
-                                            <th>Observaciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                @foreach (var fallas in Model.HistoricoFallas)
+                                if (Model.InformesMantenimiento.Count > 0)
                                 {
-                                                <tr>
-                                                <th>@fallas.Fecha</th>
-                                                <th>@fallas.Ocurrencia</th>
-                                                <th>@fallas.RevisadoPor</th>
-                                                <th>@fallas.Observaciones</th>
-                                                </tr>
+                                    <div>
+                                        <div class="row ">
+                                            <div class="col">
+                                                <h4 class="card-title">Informe de mantenimiento</h4>
+                                            </div>
+                                            <div class="col">
+                                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Lugar Mantenimiento</th>
+                                                        <th>Número de Informe</th>
+                                                        <th>Revisado por</th>
+                                                        <th>Observaciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var mantenimiento in Model.InformesMantenimiento)
+                                                    {
+                                                        <tr>
+                                                            <td>@mantenimiento.Fecha</td>
+                                                            <td>@mantenimiento.LugarMantenimiento</td>
+                                                            <td>@mantenimiento.NumeroInforme</td>
+                                                            <td>@mantenimiento.RevisadoPor</td>
+                                                            <td>@mantenimiento.Observaciones</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 }
-                                    </tbody>
-                                </table>
-                            }
-                            else
-                            {
-                                <div class="my-3">
+                                else
+                                {
                                     <div class="container row">
                                         <div class="col text-center">
-                                            <h5>Historico de <br />fallas</h5>
+                                            <h5>Informe de Mantenimiento</h5>
                                         </div>
                                         <div class="col text-center">
                                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
@@ -201,99 +143,167 @@
                                     <div class="alert alert-info my-3">
                                         No hay datos de mantenimiento disponibles.
                                     </div>
-                                </div>
+
+                                }
                             }
-                        }else
-                        {
-                            <div class="my-3">
+                            else
+                            {
                                 <div>
-                                    <h4>Historico Fallas</h4>
+                                    <h4>Informe mantenimiento</h4>
                                 </div>
                                 <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
-                     </div>
+                    <div class="row">
+                        <div class="mt-5 mr-3">
+                            @if (Model.DatosEquipo != null && Model.FichaTecnicaEquipo != null)
+                            {
+                                @if (Model.HistoricoFallas.Count > 0)
+                                {
+                                    <div class="row d-flex flex-row my-3">
+                                        <div class="col d-flex justify-content align-items">
+                                            <h4>Informe de falla </h4>
+                                        </div>
+                                        <div class="col d-flex justify-content align-items">
+                                            <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar Falla </button>
+                                        </div>
+                                    </div>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Ocurrencia Falla</th>
+                                                <th>Revisado por</th>
+                                                <th>Observaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var fallas in Model.HistoricoFallas)
+                                            {
+                                                <tr>
+                                                    <td>@fallas.Fecha</td>
+                                                    <td>@fallas.Ocurrencia</td>
+                                                    <td>@fallas.RevisadoPor</td>
+                                                    <td>@fallas.Observaciones</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <div class="my-3">
+                                        <div class="container row">
+                                            <div class="col text-center">
+                                                <h5>Historico de <br />fallas</h5>
+                                            </div>
+                                            <div class="col text-center">
+                                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
+                                                    + Agregar
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-info my-3">
+                                            No hay datos de mantenimiento disponibles.
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="my-3">
+                                    <div>
+                                        <h4>Historico Fallas</h4>
+                                    </div>
+                                    <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
+                                </div>
+                            }
+                        </div>
+
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <h4>Ficha técnica</h4>
-                @if (Model.FichaTecnicaEquipo != null)
-                {
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>MARCA:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Marca</td>
-                                    <th>TIPO / MODELO:</th>
-                                    <td>@Model.FichaTecnicaEquipo.TipoModelo</td>
-                                </tr>
-                                <tr>
-                                    <th>Nº DE SERIE:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Serie</td>
-                                    <th>CÓDIGO:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Codigo</td>
-                                </tr>
-                                <tr>
-                                    <th>TENSIÓN:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Tension</td>
-                                    <th>FRECUENCIA:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Frecuencia</td>
-                                </tr>
-                                <tr>
-                                    <th>CAPACIDAD:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Capacidad</td>
-                                    <th>PRESIÓN:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Presion</td>
-                                </tr>
-                                <tr>
-                                    <th>RESOLUCIÓN:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Resolucion</td>
-                                    <th>AÑO FABRICACIÓN:</th>
-                                    <td>@(Model.FichaTecnicaEquipo.AnoFabricacion?.ToString("yyyy-MM-dd"))</td>
-                                </tr>
-                                <tr>
-                                    <th>UBICACIÓN:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Ubicacion</td>
-                                    <th>CORRIENTE:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Corriente</td>
-                                </tr>
-                                <tr>
-                                    <th>POTENCIA:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Potencia</td>
-                                    <th>VELOCIDAD:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Velocidad</td>
-                                </tr>
-                                <tr>
-                                    <th>TEMPERATURA:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Temperatura</td>
-                                    <th>CANALES:</th>
-                                    <td>@Model.FichaTecnicaEquipo.Canales</td>
-                                </tr>
-                                <tr>
-                                    <th>FECHA OPERATIVIDAD:</th>
-                                    <td>(@Model.FichaTecnicaEquipo.FechaOperatividad.ToString("yyyy-MM-dd"))</td>
-                                    <th>FECHA VIGENCIA:</th>
-                                    <td>@(Model.FichaTecnicaEquipo.FechaVigencia?.ToString("yyyy-MM-dd"))</td>
-                                </tr>
-                                <tr>
-                                    <th>FREC. CALIBRACIÓN:</th>
-                                    <td>@Model.FichaTecnicaEquipo.FrecuenciaCalibracion</td>
-                                    <th>FREC. MANTENIMIENTO:</th>
-                                    <td>@Model.FichaTecnicaEquipo.FrecuenciaMantenimiento</td>
-                                </tr>
-                            </table>
+                    @if (Model.FichaTecnicaEquipo != null)
+                    {
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>MARCA:</th>
+                                <td>@Model.FichaTecnicaEquipo.Marca</td>
+                                <th>TIPO / MODELO:</th>
+                                <td>@Model.FichaTecnicaEquipo.TipoModelo</td>
+                            </tr>
+                            <tr>
+                                <th>Nº DE SERIE:</th>
+                                <td>@Model.FichaTecnicaEquipo.Serie</td>
+                                <th>CÓDIGO:</th>
+                                <td>@Model.FichaTecnicaEquipo.Codigo</td>
+                            </tr>
+                            <tr>
+                                <th>TENSIÓN:</th>
+                                <td>@Model.FichaTecnicaEquipo.Tension</td>
+                                <th>FRECUENCIA:</th>
+                                <td>@Model.FichaTecnicaEquipo.Frecuencia</td>
+                            </tr>
+                            <tr>
+                                <th>CAPACIDAD:</th>
+                                <td>@Model.FichaTecnicaEquipo.Capacidad</td>
+                                <th>PRESIÓN:</th>
+                                <td>@Model.FichaTecnicaEquipo.Presion</td>
+                            </tr>
+                            <tr>
+                                <th>RESOLUCIÓN:</th>
+                                <td>@Model.FichaTecnicaEquipo.Resolucion</td>
+                                <th>AÑO FABRICACIÓN:</th>
+                                <td>@(Model.FichaTecnicaEquipo.AnoFabricacion?.ToString("yyyy-MM-dd"))</td>
+                            </tr>
+                            <tr>
+                                <th>UBICACIÓN:</th>
+                                <td>@Model.FichaTecnicaEquipo.Ubicacion</td>
+                                <th>CORRIENTE:</th>
+                                <td>@Model.FichaTecnicaEquipo.Corriente</td>
+                            </tr>
+                            <tr>
+                                <th>POTENCIA:</th>
+                                <td>@Model.FichaTecnicaEquipo.Potencia</td>
+                                <th>VELOCIDAD:</th>
+                                <td>@Model.FichaTecnicaEquipo.Velocidad</td>
+                            </tr>
+                            <tr>
+                                <th>TEMPERATURA:</th>
+                                <td>@Model.FichaTecnicaEquipo.Temperatura</td>
+                                <th>CANALES:</th>
+                                <td>@Model.FichaTecnicaEquipo.Canales</td>
+                            </tr>
+                            <tr>
+                                <th>FECHA OPERATIVIDAD:</th>
+                                <td>(@Model.FichaTecnicaEquipo.FechaOperatividad.ToString("yyyy-MM-dd"))</td>
+                                <th>FECHA VIGENCIA:</th>
+                                <td>@(Model.FichaTecnicaEquipo.FechaVigencia?.ToString("yyyy-MM-dd"))</td>
+                            </tr>
+                            <tr>
+                                <th>FREC. CALIBRACIÓN:</th>
+                                <td>@Model.FichaTecnicaEquipo.FrecuenciaCalibracion</td>
+                                <th>FREC. MANTENIMIENTO:</th>
+                                <td>@Model.FichaTecnicaEquipo.FrecuenciaMantenimiento</td>
+                            </tr>
+                        </table>
 
-                            <div>
-                                <strong>INSTRUCCIÓN DE OPERACIÓN:</strong>
-                                <p>@Model.FichaTecnicaEquipo.InstruccionOperacion</p>
-                            </div>
-                            <button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#editarFichaTecnicaModal">Editar Ficha Técnica</button>
-                }
-                else
-                {
-                            <p>No hay información de ficha técnica disponible.</p>
-                            <button id="btnAgregarFichaTecnica" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarFichaTecnicaModal">Agregar Ficha Técnica</button>
-                }
+                        <div>
+                            <strong>INSTRUCCIÓN DE OPERACIÓN:</strong>
+                            <p>@Model.FichaTecnicaEquipo.InstruccionOperacion</p>
+                        </div>
+                        <button class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#editarFichaTecnicaModal">Editar Ficha Técnica</button>
+                    }
+                    else
+                    {
+                        <p>No hay información de ficha técnica disponible.</p>
+                        <button id="btnAgregarFichaTecnica" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarFichaTecnicaModal">Agregar Ficha Técnica</button>
+                    }
                 </div>
+            </div>
+
         </main>
     </div>
 </div>
@@ -773,6 +783,34 @@
 
 
 <style>
+    body {
+        font-size: 16px;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        padding: 48px 0 0;
+        box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    }
+
+        .sidebar .nav-link {
+            font-weight: 500;
+            color: #fff;
+        }
+
+            .sidebar .nav-link.active {
+                color: #007bff;
+            }
+
+    .logo {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
     .table-sm th, .table-sm td {
         padding: 0.25rem;
         font-size: 0.9rem;
