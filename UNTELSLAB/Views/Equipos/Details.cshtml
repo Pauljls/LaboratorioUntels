@@ -94,11 +94,11 @@
                                 {
                                     <div>
                                         <div class="row ">
-                                            <div class="col">
-                                                <h4 class="card-title">Informe de mantenimiento</h4>
+                                            <div class="col d-flex justify-content-center align-items-center text-center">
+                                                <h5 class="card-title">Informe de mantenimiento</h5>
                                             </div>
-                                            <div class="col">
-                                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar Mantenimiento</button>
+                                            <div class="col d-flex justify-content-center align-items-center">
+                                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">+ Agregar</button>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -134,7 +134,7 @@
                                         <div class="col text-center">
                                             <h5>Informe de Mantenimiento</h5>
                                         </div>
-                                        <div class="col text-center">
+                                        <div class="col d-flex justify-content-center align-items-center">
                                             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
                                                 + Agregar
                                             </button>
@@ -149,7 +149,7 @@
                             else
                             {
                                 <div>
-                                    <h4>Informe mantenimiento</h4>
+                                    <h5>Informe mantenimiento</h5>
                                 </div>
                                 <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
                             }
@@ -162,18 +162,18 @@
                                 @if (Model.HistoricoFallas.Count > 0)
                                 {
                                     <div class="row d-flex flex-row my-3">
-                                        <div class="col d-flex justify-content align-items">
-                                            <h4>Informe de falla </h4>
+                                        <div class="col d-flex justify-content-center align-items-center text-center">
+                                            <h5>Historico de <br/> fallas </h5>
                                         </div>
-                                        <div class="col d-flex justify-content align-items">
-                                            <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar Falla </button>
+                                        <div class="col d-flex justify-content-center align-items-center">
+                                            <button class="btn btn-success" btn-block" data-bs-toggle="modal" data-bs-target="#agregarFallaModal">+ Agregar </button>
                                         </div>
                                     </div>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Fecha</th>
-                                                <th>Ocurrencia Falla</th>
+                                                <th>Ocurrencia Fallas</th>
                                                 <th>Revisado por</th>
                                                 <th>Observaciones</th>
                                             </tr>
@@ -198,7 +198,7 @@
                                             <div class="col text-center">
                                                 <h5>Historico de <br />fallas</h5>
                                             </div>
-                                            <div class="col text-center">
+                                            <div class="col d-flex justify-content-center align-items-center">
                                                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#agregarMantenimientoModal">
                                                     + Agregar
                                                 </button>
@@ -214,7 +214,7 @@
                             {
                                 <div class="my-3">
                                     <div>
-                                        <h4>Historico Fallas</h4>
+                                        <h5>Historico Fallas</h5>
                                     </div>
                                     <div class="alert alert-warning">Necesita llenar Datos y ficha técnica antes.</div>
                                 </div>

@@ -4045,11 +4045,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\UNTELSLAB.csproj",
+      "projectUniqueName": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\UNTELSLAB.csproj",
       "projectName": "UNTELSLAB",
-      "projectPath": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\UNTELSLAB.csproj",
+      "projectPath": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\UNTELSLAB.csproj",
       "packagesPath": "C:\\Users\\paula\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\paula\\OneDrive\\Desktop\\UNTELSLAB\\UNTELSLAB\\obj\\",
+      "outputPath": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\paula\\AppData\\Roaming\\NuGet\\NuGet.Config",
