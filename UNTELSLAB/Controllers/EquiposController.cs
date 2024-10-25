@@ -300,43 +300,75 @@ namespace UNTELSLAB.Controllers
                 return Json(new { success = false, message = "Datos inválidos" });
             }
 
-            try
+            if (datos.Manual != null)
             {
-                var equipoLaboratorio = _context.EquipoLaboratorio.FirstOrDefault(
-                    e => e.Id == datos.idEquipo);
-                if (equipoLaboratorio == null) {
-                    throw new Exception("No se encontro el equipo especificado");
-                }
-                //Guardar la foto en la carpeta uploads
-                var uploadsRootFolder = Path.Combine(_env.WebRootPath, "Uploads");
-                var equipoFolder = Path.Combine(uploadsRootFolder, equipoLaboratorio.Nombre);
-                Directory.CreateDirectory(equipoFolder);
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(datos.Manual.FileName);
-                var filePath = Path.Combine(equipoFolder, fileName);
-
-                using (FileStream stream = new(filePath, FileMode.Create))
+                try
                 {
-                    await datos.Manual.CopyToAsync(stream);
+                    var equipoLaboratorio = _context.EquipoLaboratorio.FirstOrDefault(
+                        e => e.Id == datos.idEquipo);
+                    if (equipoLaboratorio == null)
+                    {
+                        throw new Exception("No se encontro el equipo especificado");
+                    }
+                    //Guardar la foto en la carpeta uploads
+                    var uploadsRootFolder = Path.Combine(_env.WebRootPath, "Uploads");
+                    var equipoFolder = Path.Combine(uploadsRootFolder, equipoLaboratorio.Nombre);
+                    Directory.CreateDirectory(equipoFolder);
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(datos.Manual.FileName);
+                    var filePath = Path.Combine(equipoFolder, fileName);
+
+                    using (FileStream stream = new(filePath, FileMode.Create))
+                    {
+                        await datos.Manual.CopyToAsync(stream);
+                    }
+
+                    DatosEquipo datosEquipo = new()
+                    {
+                        Procesador = datos.Procesador,
+                        SistemaOperativo = datos.SistemaOperativo,
+                        Memoria = datos.Memoria,
+                        Manual = fileName,
+                        AnoFabricacion = datos.AnoFabricacion,
+                        IdEquipo = datos.idEquipo
+                    };
+
+                    _context.DatosEquipo.Add(datosEquipo);
+                    await _context.SaveChangesAsync();
+
+                    return Json(new { success = true, message = "Datos del equipo agregados correctamente" });
                 }
-
-                DatosEquipo datosEquipo = new()
+                catch (Exception ex)
                 {
-                    Procesador = datos.Procesador,
-                    SistemaOperativo = datos.SistemaOperativo,
-                    Memoria = datos.Memoria,
-                    Manual = fileName,
-                    AnoFabricacion = datos.AnoFabricacion,
-                    IdEquipo = datos.idEquipo
-                };
-
-                _context.DatosEquipo.Add(datosEquipo);
-                await _context.SaveChangesAsync();
-
-                return Json(new { success = true, message = "Datos del equipo agregados correctamente" });
+                    return Json(new { success = false, message = ex.Message });
+                }
             }
-            catch (Exception ex)
-            {
-                return Json(new { success = false, message = ex.Message });
+            else {
+                try
+                {
+                    var equipoLaboratorio = _context.EquipoLaboratorio.FirstOrDefault(
+                        e => e.Id == datos.idEquipo);
+                    if (equipoLaboratorio == null)
+                    {
+                        throw new Exception("No se encontro el equipo especificado");
+                    }
+                    DatosEquipo datosEquipo = new()
+                    {
+                        Procesador = datos.Procesador,
+                        SistemaOperativo = datos.SistemaOperativo,
+                        Memoria = datos.Memoria,
+                        AnoFabricacion = datos.AnoFabricacion,
+                        IdEquipo = datos.idEquipo
+                    };
+
+                    _context.DatosEquipo.Add(datosEquipo);
+                    await _context.SaveChangesAsync();
+
+                    return Json(new { success = true, message = "Datos del equipo agregados correctamente" });
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { success = false, message = ex.Message });
+                }
             }
         }
 

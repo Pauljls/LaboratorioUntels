@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\laboratoriountels\\untelslab\\views\\equipos\\equiposlaboratorio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\views\\equipos\\equiposlaboratorio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\laboratoriountels\\untelslab\\views\\equipos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\views\\equipos\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\laboratoriountels\\untelslab\\views\\equipos\\equiposlaboratorio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|solutionrelative:untelslab\\views\\equipos\\equiposlaboratorio.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7BA5879-62D0-44BC-A37A-E740307FB13F}|UNTELSLAB\\UNTELSLAB.csproj|c:\\users\\paula\\onedrive\\desktop\\laboratoriountels\\untelslab\\views\\laboratorios\\equipodetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -22,21 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EquiposLaboratorio.cshtml",
-              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
-              "RelativeDocumentMoniker": "UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
-              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
-              "RelativeToolTip": "UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAAAH8AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-25T01:50:17.409Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
@@ -52,12 +39,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "EquiposLaboratorio.cshtml",
+              "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "RelativeDocumentMoniker": "UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "RelativeToolTip": "UNTELSLAB\\Views\\Equipos\\EquiposLaboratorio.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-25T01:50:17.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\Views\\Equipos\\Details.cshtml",
               "RelativeDocumentMoniker": "UNTELSLAB\\Views\\Equipos\\Details.cshtml",
               "ToolTip": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\Views\\Equipos\\Details.cshtml",
               "RelativeToolTip": "UNTELSLAB\\Views\\Equipos\\Details.cshtml",
-              "ViewState": "AgIAAKUBAAAAAAAAAAAgwDgBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAAAMsAAACJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-25T01:41:17.741Z",
               "EditorCaption": ""

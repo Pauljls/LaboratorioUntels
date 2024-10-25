@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PC7tRH3dtfxkNzrA4RWKFTkTz2gbEI6cgBDOyz/Drmg=",
+  "Hash": "QbDbcgRIcK/bXyJsDfNgjz8QgAz9yW3LSwjJv6qKNKk=",
   "Source": "UNTELSLAB",
   "BasePath": "_content/UNTELSLAB",
   "Mode": "Default",
@@ -1250,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\carlos\\cff27d0d-9539-40bc-a7ff-0098e5ad1044.pdf",
+      "SourceId": "UNTELSLAB",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\",
+      "BasePath": "_content/UNTELSLAB",
+      "RelativePath": "Uploads/carlos/cff27d0d-9539-40bc-a7ff-0098e5ad1044.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\carlos\\cff27d0d-9539-40bc-a7ff-0098e5ad1044.pdf"
     },
     {
       "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO\\28c02459-38f7-4be7-a086-fe46597cea34.pdf",
