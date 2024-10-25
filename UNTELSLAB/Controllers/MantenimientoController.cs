@@ -25,6 +25,8 @@ namespace UNTELSLAB.Controllers
                 .Include(e => e.Laboratorio)
                 .Include(e => e.FichaTecnicaEquipo)
                 .Include(e => e.DatosEquipo)
+                .Include(e => e.HistoricoFallas)
+                .Include(e => e.InformesMantenimiento)
                 .ToListAsync();
             return View(equipos);
         }
