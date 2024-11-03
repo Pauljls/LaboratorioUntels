@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UNTELSLAB.Data;
 using UNTELSLAB.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UNTELSLAB.Controllers
 {
@@ -304,7 +305,7 @@ namespace UNTELSLAB.Controllers
             {
                 try
                 {
-                    var equipoLaboratorio = _context.EquipoLaboratorio.FirstOrDefault(
+                    var equipoLaboratorio = await _context.EquipoLaboratorio.FirstOrDefaultAsync(
                         e => e.Id == datos.idEquipo);
                     if (equipoLaboratorio == null)
                     {
@@ -369,6 +370,103 @@ namespace UNTELSLAB.Controllers
                 {
                     return Json(new { success = false, message = ex.Message });
                 }
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditarManual([FromForm] ManualDTO manualDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { success = false, message = "Datos inválidos" });
+            }
+            try
+            {
+                var datosActuales = await _context.DatosEquipo
+                    .FirstOrDefaultAsync(f => f.Id == manualDto.Id);
+                var equipo = await _context.EquipoLaboratorio
+                    .FirstOrDefaultAsync(f => f.Id == manualDto.idEquipo);
+
+                if (equipo == null)
+                {
+                    throw new Exception("No se encontró el equipo especificado");
+                }
+
+                if (datosActuales == null)
+                {
+                    throw new Exception("No se encontraron los datos del equipo");
+                }
+
+                // Crear el directorio si no existe
+                var manualFolder = Path.Combine(_env.WebRootPath, "Uploads", equipo.Nombre);
+
+                Directory.CreateDirectory(manualFolder); // Crea el directorio si no existe
+
+                // Eliminar manual existente si hay uno
+                if (!string.IsNullOrEmpty(datosActuales.Manual))
+                {
+                    var manualExistente = Path.Combine(manualFolder, datosActuales.Manual);
+                    try
+                    {
+                        if (System.IO.File.Exists(manualExistente))
+                        {
+                            System.IO.File.Delete(manualExistente); // Elimina directamente el archivo
+                            _logger.LogInformation($"Archivo anterior eliminado: {manualExistente}"); // opcional: para debug
+                        }
+                    }
+                    catch (IOException ex)
+                    {
+                        throw new Exception($"Error al eliminar el archivo existente: {ex.Message}");
+                    }
+                    catch (UnauthorizedAccessException ex)
+                    {
+                        throw new Exception($"Sin permisos para eliminar el archivo existente: {ex.Message}");
+                    }
+                }
+
+                // Verificar si hay un nuevo manual para subir
+                if (manualDto.Manual == null)
+                {
+                    throw new Exception("No se ha proporcionado un nuevo manual");
+                }
+
+                // Validar el archivo
+                var allowedExtensions = new[] { ".pdf" };
+                var extension = Path.GetExtension(manualDto.Manual.FileName).ToLowerInvariant();
+                if (!allowedExtensions.Contains(extension))
+                {
+                    throw new Exception("Tipo de archivo no permitido. Solo se permiten PDF y documentos Word.");
+                }
+
+                if (manualDto.Manual.Length > 10485760) // 10MB límite
+                {
+                    throw new Exception("El archivo es demasiado grande. Máximo 10MB permitido.");
+                }
+
+                // Guardar el nuevo manual
+                var fileName = $"{Guid.NewGuid()}{extension}";
+                var filePath = Path.Combine(manualFolder, fileName);
+
+                using (FileStream stream = new(filePath, FileMode.Create))
+                {
+                    await manualDto.Manual.CopyToAsync(stream);
+                }
+
+                // Actualizar solo el campo Manual en la base de datos
+                datosActuales.Manual = fileName;
+                _context.Entry(datosActuales).Property(x => x.Manual).IsModified = true;
+                await _context.SaveChangesAsync();
+
+                return Json(new
+                {
+                    success = true,
+                    message = "Manual actualizado correctamente",
+                    fileName = fileName
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
             }
         }
 

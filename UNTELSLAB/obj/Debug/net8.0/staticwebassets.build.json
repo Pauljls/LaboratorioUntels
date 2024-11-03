@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QbDbcgRIcK/bXyJsDfNgjz8QgAz9yW3LSwjJv6qKNKk=",
+  "Hash": "DZmArvEaVnjv+mJhCALNCYj0yK0KJ1q7AJE5sXx94UQ=",
   "Source": "UNTELSLAB",
   "BasePath": "_content/UNTELSLAB",
   "Mode": "Default",
@@ -1252,12 +1252,12 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\carlos\\cff27d0d-9539-40bc-a7ff-0098e5ad1044.pdf",
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\11dc314e-37d1-41ca-aa3f-3fdf3a3091b1.pdf",
       "SourceId": "UNTELSLAB",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\",
       "BasePath": "_content/UNTELSLAB",
-      "RelativePath": "Uploads/carlos/cff27d0d-9539-40bc-a7ff-0098e5ad1044.pdf",
+      "RelativePath": "Uploads/EQUIPO-DIABLITO-06/11dc314e-37d1-41ca-aa3f-3fdf3a3091b1.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1268,15 +1268,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\carlos\\cff27d0d-9539-40bc-a7ff-0098e5ad1044.pdf"
+      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\11dc314e-37d1-41ca-aa3f-3fdf3a3091b1.pdf"
     },
     {
-      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO\\28c02459-38f7-4be7-a086-fe46597cea34.pdf",
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\78684068-b03c-4575-b7db-fdd97eb5fbb0.pdf",
       "SourceId": "UNTELSLAB",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\",
       "BasePath": "_content/UNTELSLAB",
-      "RelativePath": "Uploads/EQUIPO-DIABLITO/28c02459-38f7-4be7-a086-fe46597cea34.pdf",
+      "RelativePath": "Uploads/EQUIPO-DIABLITO-06/78684068-b03c-4575-b7db-fdd97eb5fbb0.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1287,15 +1287,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO\\28c02459-38f7-4be7-a086-fe46597cea34.pdf"
+      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\78684068-b03c-4575-b7db-fdd97eb5fbb0.pdf"
     },
     {
-      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-10\\a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf",
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\9c0cde5f-c1e5-4266-b59f-af07fbff0ba8.pdf",
       "SourceId": "UNTELSLAB",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\",
       "BasePath": "_content/UNTELSLAB",
-      "RelativePath": "Uploads/EQUIPO-DIABLITO-10/a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf",
+      "RelativePath": "Uploads/EQUIPO-DIABLITO-06/9c0cde5f-c1e5-4266-b59f-af07fbff0ba8.pdf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1306,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-10\\a72fe436-634e-4283-b6ef-8ea0d9592cb7.pdf"
+      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\9c0cde5f-c1e5-4266-b59f-af07fbff0ba8.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\fbcc1c92-dc03-4f30-9057-a48634c62b39.pdf",
+      "SourceId": "UNTELSLAB",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\paula\\OneDrive\\Desktop\\LaboratorioUntels\\UNTELSLAB\\wwwroot\\",
+      "BasePath": "_content/UNTELSLAB",
+      "RelativePath": "Uploads/EQUIPO-DIABLITO-06/fbcc1c92-dc03-4f30-9057-a48634c62b39.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\EQUIPO-DIABLITO-06\\fbcc1c92-dc03-4f30-9057-a48634c62b39.pdf"
     }
   ]
 }

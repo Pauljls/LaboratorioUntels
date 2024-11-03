@@ -70,11 +70,14 @@
                                     <dd class="col-sm-8">
                                         @if (!string.IsNullOrEmpty(Model.DatosEquipo.Manual))
                                         {
-                                            <button href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#manuaModal">Ver</button>
+                                            <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#manuaModal">Ver</button>
+                                            <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#agregarManual">Editar</button>
                                         }
                                         else
                                         {
-                                            <span>No disponible</span>
+                                            <div class="d-flex flex-row justify-content-around">
+                                                <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#agregarManual"> + Manual</button>
+                                            </div>
                                         }
                                     </dd>
                                 </dl>
@@ -419,6 +422,33 @@
     </div>
 </div>
 
+<!--AGREGAR MANUAL-->
+<div class="modal fade" id="agregarManual" tabindex="-1" role="dialog" aria-labelledby="agregarManualLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarDatosModalLabel">Agregar Manual</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="agregarManualForm" enctype="multipart/form-data">
+                    <input type="hidden" id="datosEquipoId" name="Id" value="@Model?.DatosEquipo?.Id" />
+                    <input type="hidden" id="idEquipo" name="idEquipo" value="@Model?.Id" />
+                    <div class="form-group">
+                        <label for="manual">Manual</label>
+                        <input type="file" class="form-control" id="manual" name="Manual" accept=".pdf,application/pdf">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="agregarManual()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Modal para agregar ficha técnica -->
@@ -1057,6 +1087,35 @@
                 alert('Error al comunicarse con el servidor');
             });
         }
+
+
+        function agregarManual() {
+            const objectForm = document.getElementById("agregarManualForm");
+            const formData = new FormData(objectForm);
+            console.log(Object.fromEntries(formData.entries()))
+            $.ajax({
+                url: '/Equipos/EditarManual',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    if (result.success) {
+                        alert('Manual agregado correctamente');
+                        location.reload();
+                    } else {
+                        alert('Error: ' + result.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error en la solicitud AJAX:', error);
+                    console.error('Estado:', status);
+                    console.error('Respuesta del servidor:', xhr.responseText);
+                    alert('Error al comunicarse con el servidor: ' + error);
+                }
+            });
+        }
+
 
         // Función para abrir modales manualmente si es necesario
         function abrirModal(modalId) {
